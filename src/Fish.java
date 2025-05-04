@@ -1,7 +1,5 @@
 import javax.imageio.ImageIO;
 import java.awt.*;
-import java.awt.geom.AffineTransform;
-import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
@@ -54,7 +52,7 @@ public class Fish {
 
         image = fishSheet.grabImage(spriteRow,0);
 
-        g2d.drawImage(image,x,y, Main.DEFAULT_SPRITE_SIZE * Main.DEFAULT_SCALE_FACTOR * fishSize, Main.DEFAULT_SPRITE_SIZE * Main.DEFAULT_SCALE_FACTOR,null);
+        g2d.drawImage(image,x,y, GamePanel.TILE_SIZE * fishSize, GamePanel.TILE_SIZE,null);
 
     }
 
@@ -76,9 +74,9 @@ public class Fish {
         } else {
             x += xMove;
             if (x > GamePanel.SCREEN_WIDTH) {
-                x = 0 + Main.DEFAULT_SPRITE_SIZE * Main.DEFAULT_SCALE_FACTOR;
+                x = 0 + GamePanel.TILE_SIZE;
             } else if (x < 0) {
-                x = GamePanel.SCREEN_WIDTH - Main.DEFAULT_SPRITE_SIZE * Main.DEFAULT_SCALE_FACTOR;
+                x = GamePanel.SCREEN_WIDTH - GamePanel.TILE_SIZE;
             }
             y += yMove;
             y = Math.clamp(y,0,600);

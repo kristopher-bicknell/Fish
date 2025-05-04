@@ -3,11 +3,11 @@ import java.awt.*;
 
 public class GamePanel extends JPanel implements Runnable {
     final static int ORIGINAL_TILE_SIZE = 24;
-    final static double SCALE = 4;
+    final static double SCALE = 2;
 
-    final static int TILE_SIZE = (int)(ORIGINAL_TILE_SIZE * SCALE);
-    final static int MAX_SCREEN_COL = 8;
-    final static int MAX_SCREEN_ROW = 5;
+    final static int TILE_SIZE = (int)(Main.DEFAULT_SPRITE_SIZE * Main.DEFAULT_SCALE_FACTOR);
+    final static int MAX_SCREEN_COL = 16;
+    final static int MAX_SCREEN_ROW = 10;
     public static final int SCREEN_WIDTH = TILE_SIZE * MAX_SCREEN_COL;
     public static final int SCREEN_HEIGHT = TILE_SIZE * MAX_SCREEN_ROW;
 
@@ -88,6 +88,12 @@ public class GamePanel extends JPanel implements Runnable {
         fish2.draw(g2d);
         fish3.draw(g2d);
         perch.draw(g2d);
+        for (int i = 0; i < GamePanel.MAX_SCREEN_COL; i++) {
+            for (int j = 0; j < GamePanel.MAX_SCREEN_ROW; j++) {
+                g2d.drawImage(Background.overlay, i*TILE_SIZE,j*TILE_SIZE,
+                        TILE_SIZE, TILE_SIZE,null);
+            }
+        }
 
     }
 }

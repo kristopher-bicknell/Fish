@@ -4,7 +4,7 @@ import java.util.Random;
 public class Main extends JFrame {
 
     public static int DEFAULT_SPRITE_SIZE = 24;
-    public static int DEFAULT_SCALE_FACTOR = 4;
+    public static int DEFAULT_SCALE_FACTOR = 2;
 
     public static Random rng = new Random();
 
